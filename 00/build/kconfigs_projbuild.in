@@ -1,0 +1,5 @@
+source "/home/fabio/esp4.3.1/esp-idf/components/app_update/Kconfig.projbuild"
+source "/home/fabio/esp4.3.1/esp-idf/components/bootloader/Kconfig.projbuild"
+source "/home/fabio/esp4.3.1/esp-idf/components/esptool_py/Kconfig.projbuild"
+source "/home/fabio/esp4.3.1/esp-idf/components/partition_table/Kconfig.projbuild"
+source "/home/fabio/esp4.3.1/unisal-2021-1/00/main/Kconfig.projbuild"

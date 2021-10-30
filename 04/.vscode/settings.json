@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "freertos.h": "c",
+        "projdefs.h": "c",
+        "semphr.h": "c"
+    }
+}
