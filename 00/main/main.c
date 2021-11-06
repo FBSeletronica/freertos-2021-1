@@ -48,6 +48,8 @@ void vTaskBlink(void *pvParameters ){
         printf("Turning on the LED\n");
         gpio_set_level(BLINK_GPIO, 1);
         vTaskDelay(500 / portTICK_PERIOD_MS);
-        
+    
+
   }
 }
+

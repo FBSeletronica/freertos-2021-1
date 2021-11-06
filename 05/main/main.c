@@ -15,7 +15,6 @@
 #define LED1 2
 #define LED2 5
 
-
 /* Variáveis para Armazenar o handle das Tasks */
 TaskHandle_t xTask1Handle, xTask2Handle, xTask3Handle;
 
@@ -27,18 +26,24 @@ int valor = 100;
 
 void app_main(void)
 {
-  gpio_reset_pin(BLINK_GPIO);
-    /* Set the GPIO as a push/pull output */
-  gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
-
+ 
   xTaskCreate(
      vTask1                     /* função da task*/   
     ,  "Task1"                  /* Nome da Task */
     ,  configMINIMAL_STACK_SIZE +1024 /* Stack Size */
-    ,  (void*)100                     /* parametro passado para a task*/
+    ,  (void*)100                 /* parametro passado para a task*/
     ,  1                        /* Prioridade da task*/
     ,  &xTask1Handle          /* handle da task*/
     );    
+
+  xTaskCreate(
+     vTask1                     /* função da task*/   
+    ,  "Task2"                  /* Nome da Task */
+    ,  configMINIMAL_STACK_SIZE +1024 /* Stack Size */
+    ,  (void*)500                 /* parametro passado para a task*/
+    ,  1                        /* Prioridade da task*/
+    ,  NULL         /* handle da task*/
+    ); 
 
   xTaskCreate(
      vTask2                             /* função da task*/
@@ -60,14 +65,14 @@ void app_main(void)
 }
 
 
-/* Task 1 - Blink LED */
+/* Task 1 - contador*/
 void vTask1(void *pvParameters )
 {
   int count = (int)pvParameters;
 
   while(1)
   {
-    printf("Task 1: %d \n",count++);
+    printf("Task %s: %d \n",__func__,count++);
     vTaskDelay(pdMS_TO_TICKS(500));    /* Delay de 1 segundos */
   }
 }

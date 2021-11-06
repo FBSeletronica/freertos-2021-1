@@ -22,7 +22,7 @@ void vTask2(void *pvParameters );
 
 void app_main(void)
 {
-  xTaskCreatePinnedToCore(vTask1,"Task1",2048,NULL,1, &xTask1Handle,APP_CPU_NUM);
+  xTaskCreatePinnedToCore(vTask1,"Task1",2048,NULL,2, &xTask1Handle,APP_CPU_NUM);
   xTaskCreatePinnedToCore(vTask2,"Task2",2048,NULL,1, &xTask2Handle,PRO_CPU_NUM);     
 }
 
