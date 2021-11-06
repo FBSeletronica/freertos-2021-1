@@ -128,7 +128,9 @@ CONFIG_PARTITION_TABLE_MD5=y
 #
 # Example Configuration
 #
-CONFIG_BLINK_GPIO=5
+CONFIG_BLINK_GPIO=2
+CONFIG_ESP_WIFI_SSID="myssid"
+CONFIG_ESP_WIFI_PASSWORD="mypassword"
 # end of Example Configuration
 
 #

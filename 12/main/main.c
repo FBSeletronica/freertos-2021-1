@@ -1,5 +1,5 @@
 /*********************************************************
-* Exemplo para demonstrar o uso de semaforo binário
+* Exemplo para demonstrar o uso de semaforo contador
 * Por: Fábio Souza
 *********************************************************/
 
@@ -29,14 +29,12 @@
  */
 static const char * TAG = "Trata ISR: ";
 
-QueueHandle_t xQueue;
 SemaphoreHandle_t xCountingSemaphore;
 
 /**
  * Protótipos
  */
 void task_led( void *pvParameter ); 
-
 
 /**
  * Função de callback ISR da interrupção externa (GPIO-17)
@@ -56,11 +54,8 @@ static void IRAM_ATTR gpio_isr_handler( void * pvParameter )
             {
                 portYIELD_FROM_ISR();
             }
-
         }   
-    
     }   
-        
 }
  
 void app_main( void )

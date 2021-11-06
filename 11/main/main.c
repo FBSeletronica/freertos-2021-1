@@ -32,8 +32,6 @@ void app_main (void)
   
   xTaskCreate(vTask1, "vTask1",2048,NULL,1, NULL);
   xTaskCreate(vTask2, "vTask2",2048,NULL,4,NULL);
-
- 
 }
 
 
@@ -66,6 +64,6 @@ void vTask2( void * pvParameters )
     ESP_LOGI("Task 2 ","Vtask2 em execução");
     xSemaphoreGive( xMutex );
     ESP_LOGI("Task 2 ","vTask2 devolve o semáforo \r\n");
-    vTaskDelay(pdMS_TO_TICKS(1000));
+    vTaskDelay(pdMS_TO_TICKS(10));
   }
 }

@@ -29,7 +29,6 @@
  */
 static const char * TAG = "MAIN: ";
 
-QueueHandle_t xQueue;
 SemaphoreHandle_t xSemaphore;
 
 /**
@@ -58,17 +57,10 @@ static void IRAM_ATTR gpio_isr_handler( void * pvParameter )
             }
 
         }   
-    
     }   
-        
 }
 
 
- 
-
-
-
- 
 void app_main( void )
 {   
 
@@ -128,7 +120,7 @@ void task_led( void *pvParameter )
     for(;;) 
     {         
 
-         if( xSemaphoreTake( xSemaphore, portMAX_DELAY ) == pdTRUE )
+         if( xSemaphoreTake( xSemaphore, portMAX_DELAY) == pdTRUE )
          {  
 
             gpio_set_level( LED_BUILDING, cnt_1%2 );
@@ -138,8 +130,9 @@ void task_led( void *pvParameter )
                 ESP_LOGI( TAG, "cnt_1 = %d.\r\n", cnt_1 );
 
             vTaskDelay(10);
-
          }
-       
+         else{
+            ESP_LOGI( TAG, "TIMEOUT");
+         }
     }
 }

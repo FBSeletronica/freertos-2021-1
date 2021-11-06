@@ -66,7 +66,6 @@ void vTask1(void *pvParameters )
   (void) pvParameters;
   int count = 0;
   
-
   while(1)
   {
 
@@ -90,6 +89,7 @@ void vTask2(void *pvParameters )
   int valor_recebido = 0;
   uint8_t x = 0;
 
+  gpio_set_direction(LED, GPIO_MODE_OUTPUT);
 
   while(1)
   {

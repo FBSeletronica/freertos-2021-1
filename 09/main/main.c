@@ -20,7 +20,6 @@
 #include "esp_log.h"
 
 
-
 #define LED 2
 
 QueueHandle_t xFila; /*cria objeto fila */
