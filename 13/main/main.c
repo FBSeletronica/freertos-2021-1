@@ -71,7 +71,7 @@ void vTask1( void * pvParameters )
       debouncingTime++;
       if(debouncingTime >= 10)
       {
-          gpio_set_level(LED2 , 1);        /*inverte estado do LED*/
+          gpio_set_level(LED2 , 1);        /*Liga o LED2*/
           debouncingTime = 0;
           xTimerStart(xTimer2, 0);
           ESP_LOGI("xTimer2","Timer 2 Start");
@@ -108,5 +108,6 @@ void callBackTimer1(TimerHandle_t pxTimer )
 void callBackTimer2(TimerHandle_t pxTimer )
 {
   gpio_set_level(LED2 , 0);   
-  ESP_LOGI("xTimer2","Timer 2 Stop");     
+  ESP_LOGI("xTimer2","Timer 2 Stop");  
+  vTaskDelay(pdMS_TO_TICKS(5000));  /*espera 1s*/
 }

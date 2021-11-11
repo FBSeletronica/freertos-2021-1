@@ -1,5 +1,5 @@
 /*********************************************************
-* Exemplo para demonstrar o uso de grupo de eventos
+* Exemplo para demonstrar o uso de Task Notifications
 * Por: Fábio Souza
 *********************************************************/
 
@@ -21,8 +21,6 @@ static const char * TAG = "Main: ";
 static TaskHandle_t xTask1Handle;
 
 void vTask1( void *pvParameter ); 
-void vInitHW(void);
-
 
 /**
  * Tratamento da ISR
@@ -55,7 +53,7 @@ void vTask1( void * pvParameter )
     while(1) 
     {	
 
-        quantNotify = ulTaskNotifyTake( pdFALSE, portMAX_DELAY );
+        quantNotify = ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
             
         if(quantNotify > 0){
         ESP_LOGI( TAG, "Notify = %d, LED = %d\n", quantNotify, count % 2 ); 
